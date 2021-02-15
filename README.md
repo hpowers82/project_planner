@@ -19,6 +19,7 @@ Setpoint = 0   # the input variable for the PID, controlled by the potentiometer
 # some helpful reference code for the ultrasonic sensor
 sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D5, echo_pin=board.D6)   # this sets it up for use
 print((sonar.distance,))
+time.sleep(0.1)
 
 # some helpful reference code for the potentiometer:
 potentiometer = AnalogIn(board.A1)  # potentiometer connected to A1, power & ground
