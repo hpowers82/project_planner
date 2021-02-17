@@ -7,6 +7,10 @@
 To make a ping pong float in a tube at a specific height using a fan controlled by a turning a potentiometer.
 
 ## Pseudo Code
+Step 1. Get a rotor spinning
+Step 2. Find the distance of the ping pong ball using the HCSR04
+Step 3. Put step 1+2 together without PID
+Step 4. Add PID
 ```python
 import time
 import board
@@ -29,6 +33,13 @@ while True:
  
     time.sleep(0.25)          
 
+# SetPoint should equal a mapped version of the potentiometer value
+
+# Use PID algorithm to determine the correct output value for the motor
+
+# We might do an early version of PID, just P value,
+# if distance < SetPoint, increase VMotor
+# if distance > SetPont, decrease VMotor
 ```
 ## CAD Rough Sketch
 
