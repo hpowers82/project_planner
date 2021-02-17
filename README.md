@@ -8,9 +8,13 @@ To make a ping pong float in a tube at a specific height using a fan controlled 
 
 ## Pseudo Code
 Step 1. Get a rotor spinning
+
 Step 2. Find the distance of the ping pong ball using the HCSR04
+
 Step 3. Put step 1+2 together without PID
+
 Step 4. Add PID
+
 ```python
 import time
 import board
