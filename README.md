@@ -46,4 +46,10 @@ while True:
 # if distance > SetPont, decrease VMotor
 ```
 ## CAD Rough Sketch
+The quadcopter propeller is 1 5/8 inches in diameter, and a ping pong ball is 38mm in diameter, about 1 1/2 inches.
+Mesh or some thin rods would be needed just above the propeller in the tube in order to keep the ping pong ball from hitting the propeller and damaging it.
+A normal motor would probably be only able to handle lifting the ball up a foot at most, so the length of the tube only needs to account for the propeller + 1 foot of length for the ping pong ball to move up and down in.
 
+Materials Needed for Wiring:
+- Motor kit
+- Potentiometer
