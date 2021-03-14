@@ -1,5 +1,4 @@
 ``` python
-
 import time
 import board
 import adafruit_hcsr04  # this line imports code for the ultrasonic sensor
