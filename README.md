@@ -48,10 +48,13 @@ while True:
 
 ## Progress Notes:
 
-Sean: I have currently wired the potentiometer and the ultransonic distance sensor up to the metro express and have both up running. I have the motor hooked up to the 9V battery pack, but I need to install some circuitPython libraries to control it. I currently have version 5x of circuitPython downloaded, and I need to replace my lib folder with version 6x, but I'm not sure how to do that. Once I am able to control the motor with the potentiometer, I'll be ready to put the whole project together in the lab with Hank.
+3/13/21 Sean: I have currently wired the potentiometer and the ultransonic distance sensor up to the metro express and have both up running. I have the motor hooked up to the 9V battery pack, but I need to install some circuitPython libraries to control it. I currently have version 5x of circuitPython downloaded, and I need to replace my lib folder with version 6x, but I'm not sure how to do that. Once I am able to control the motor with the potentiometer, I'll be ready to put the whole project together in the lab with Hank.
 
-Here is the current code I have put together on March 13. 
+3/22/21 Sean: I have wired up the LCD and have it printing out the distance values from the ultrasonic sensor.
 
-[Current Code]()
+
+Here is the current code I have put together on March 22. 
+
+[Current Code](https://github.com/hpowers82/project_planner/blob/main/March-22-Code.py)
 
 ## CAD Rough Sketch
