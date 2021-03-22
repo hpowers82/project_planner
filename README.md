@@ -79,6 +79,8 @@ while True:
     lcd.print('Distance: ' + str(sonar.distance))
     time.sleep(.05)
 ```
+The next problem I'm working on right now is the potentiometer has a range of values it will print out from 0 to 65,520. I need to use the potentiometer to set a distance from 0 to 30cm. I had to figure out how to map the values so that the LCD will print out values 0-30, controlled by the potentiometer.
+
 
 Here is the current code I have put together on March 22. 
 
