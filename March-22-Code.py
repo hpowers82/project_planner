@@ -5,7 +5,8 @@ import simpleio
 from analogio import AnalogIn  # this line imports code for the potentiometer
 from lcd.lcd import LCD     # these two lines import code for the lcd
 from lcd.i2c_pcf8574_interface import I2CPCF8574Interface
-
+#from adafruit_motorkit import MotorKit    # these two lines are for controlling the motor/fan
+#kit = MotorKit()
 
 lcd = LCD(I2CPCF8574Interface(0x3f), num_rows=2, num_cols=16)
 
@@ -13,22 +14,23 @@ lcd = LCD(I2CPCF8574Interface(0x3f), num_rows=2, num_cols=16)
 
 # some helpful reference code for the ultrasonic sensor
 sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D5, echo_pin=board.D6)   # this sets it up for use
+dist = sonar.distance
 
 
 # Code for the potentiometer:
 potentiometer = AnalogIn(board.A1)  # potentiometer connected to A1, power & ground
-Setpoint = potentiometer.value  # the input variable for the PID, controlled by the potentiometer
 
 while True:
- 
+    Setpoint = potentiometer.value  # the input variable for the PID, controlled by the potentiometer
     lcd.clear()
     lcd.set_cursor_pos(0,0)
-    lcd.print('Setpoint: ' + str(Setpoint))
+    lcd.print('Setpoint: ')
     lcd.set_cursor_pos(1,0)
-    lcd.print('Distance: ' + str(sonar.distance))
-    time.sleep(.05)
- 
-
+    lcd.print('Distance: ' + str(dist))
+    if (Setpoint) = 0:
+        lcd.set_cursor_pos(1,10)
+        lcd.print('0')
+    time.sleep(.1)
 
     
     
