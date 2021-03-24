@@ -109,6 +109,6 @@ I now have the LCD printing out the mapped values for my potentiometer from 0-30
 ```
 Here is the current code I have put together on March 24. 
 
-[Current Code](https://github.com/hpowers82/project_planner/blob/main/March-22-Code.py)
+[Current Code](https://github.com/hpowers82/project_planner/blob/main/March-24-Code.py)
 
 ## CAD Rough Sketch
