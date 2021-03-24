@@ -79,10 +79,35 @@ while True:
     lcd.print('Distance: ' + str(sonar.distance))
     time.sleep(.05)
 ```
-The next problem I'm working on right now is the potentiometer has a range of values it will print out from 0 to 65,520. I need to use the potentiometer to set a distance from 0 to 30cm. I had to figure out how to map the values so that the LCD will print out values 0-30, controlled by the potentiometer.
+The next problem I'm working on right now is the potentiometer has a range of values it will print out from 0 to 65,520. I need to use the potentiometer to set a distance from 0 to 30cm. I need to figure out how to map the values so that the LCD will print out values 0-30, controlled by the potentiometer.
 
-
-Here is the current code I have put together on March 22. 
+3/24/21 Sean: I was having a problem with my distance reading on my LCD screen. Every time the ultrasonic sensor would get an error, the distance reading on my lcd would go blank. For example: maybe the sensor has a wire in front of it that it is trying to read or it is suddenly super far from its target, an error would come up on my serial monitor (Beagle) . In order to get my lcd displaying the distance again, I would have to save the code again and reset everything. I saw on [Alden's circuitPython repo](https://github.com/adent11/CircuitPython) that for his distance sensor code he had this:
+```python
+while True:
+    try:
+        dist = ultrasonic.distance
+        print(dist)
+        if dist <= 20:
+            r = simpleio.map_range(dist, 0, 20, 255, 0)
+            b = simpleio.map_range(dist, 5, 20, 0, 255)
+            g = simpleio.map_range(dist, 20, 35, 0, 255)
+        else:
+            r = simpleio.map_range(dist, 0, 20, 255, 0)
+            b = simpleio.map_range(dist, 20, 35, 255, 0)
+            g = simpleio.map_range(dist, 20, 35, 0, 255)
+        neopixel.fill((int(r), int(g), int(b)))
+        print(dist)
+    except RuntimeError:
+        print("Retrying!")
+    time.sleep(.1)
+```
+The main part of this is the 'try:' and 'except' function. If the 'dist = ultrasonic.distance' line comes up with an error within the 'try:' function, the 'except RuntimeError:' will be activated. I made it so that my LCD would print "Retrying!" in that situation. Using this setup for running the 'dist = ultrasonic.distance' fixed my problem, so that every time there is an error, the LCD prints "Retrying" and it auto-resets so it imediately starting re-printing the distance reading.
+I now have the LCD printing out the mapped values for my potentiometer from 0-30. A helpful website I referenced for mapping values using circuitPython was [this](https://circuitpython.readthedocs.io/projects/simpleio/en/latest/api.html). Here is my current code I'm using for mapping the potentiometers ("Setpoint" is the variable I'm using) :
+```python
+   Setpoint = potentiometer.value  # the input variable for the PID, controlled by the potentiometer
+   Setpoint = simpleio.map_range(Setpoint,0,65520,0,30)  # maps the potentiometer value using the variable setpoint, changes the range from 0-65,520 to 0-30
+```
+Here is the current code I have put together on March 24. 
 
 [Current Code](https://github.com/hpowers82/project_planner/blob/main/March-22-Code.py)
 
