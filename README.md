@@ -107,6 +107,30 @@ I now have the LCD printing out the mapped values for my potentiometer from 0-30
    Setpoint = potentiometer.value  # the input variable for the PID, controlled by the potentiometer
    Setpoint = simpleio.map_range(Setpoint,0,65520,0,30)  # maps the potentiometer value using the variable setpoint, changes the range from 0-65,520 to 0-30
 ```
+
+3/29/21 Sean: The only components to the project that I didn't have wired were the motor and the battery pack. I popped in to Mr H's office hours this morning and got some help with the wiring, here is a diagram:
+![Wiring Diagram](images/Motor+batterypack+potentiometer-wiring.png
+)
+Even though this diagram is for an arduino, I used it for a Metro Express. For a Metro Express, the wire that connects the Metro to the transistor has to be connected to pin A0 with the scwiggly sine line nex to it. I wired my potentiometer to the A1 pin on my Metro Express. The most important things to remember when wiring the battery pack are to not have in all the batteries until you are sure no power/ground wires are touching each other, and make sure there are no wires connecting the battery pack power to the Metro Express, because it isn't made to handle that much power.
+For the code, I can use the potentiometer to make the motor accelerate and decelerate smoothly. This is my current code for testing/running the motor/potentiometer control:
+```python
+import time
+import board
+import simpleio
+from analogio import AnalogIn
+from analogio import AnalogOut # code for the motor speed/voltage stuff
+
+analog_out = AnalogOut(board.A0) # motor control pin
+
+# Code for the potentiometer:
+potentiometer = AnalogIn(board.A1)  # potentiometer connected to A1, power & ground
+
+while True:
+    analog_out.value = potentiometer.value
+    time.sleep(.1)
+```
+The next thing I need to do is integrate this code into my full code with the ultrasonic sensor and LCD.
+
 Here is the current code I have put together on March 24. 
 
 [Current Code](https://github.com/hpowers82/project_planner/blob/main/March-24-Code.py)
