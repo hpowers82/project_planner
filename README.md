@@ -131,8 +131,10 @@ while True:
 ```
 The next thing I need to do is integrate this code into my full code with the ultrasonic sensor and LCD.
 
-Here is the current code I have put together on March 24. 
+3/30/21 Sean: I have integrated the motor/potentiometer control code into the full code. I only had one problem, where the LCD display stopped working, and the serial monitor printed out something about SDA needing a pull-up. I checked that none of the wires had disconnected, and then disconnected and reconnected the ground wire to the LCD and re-saved the code. It started working after that. Now I have everything I need wired up, next thing I need to do will be to right the code for the PID controller. 
 
-[Current Code](https://github.com/hpowers82/project_planner/blob/main/March-24-Code.py)
+Here is the current code I have put together on March 30. 
+
+[Current Code](https://github.com/hpowers82/project_planner/blob/main/March-30-Code.py)
 
 ## CAD Rough Sketch
