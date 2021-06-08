@@ -131,10 +131,16 @@ while True:
 ```
 The next thing I need to do is integrate this code into my full code with the ultrasonic sensor and LCD.
 
-3/30/21 Sean: I have integrated the motor/potentiometer control code into the full code. I only had one problem, where the LCD display stopped working, and the serial monitor printed out something about SDA needing a pull-up. I checked that none of the wires had disconnected, and then disconnected and reconnected the ground wire to the LCD and re-saved the code. It started working after that. Now I have everything I need wired up, next thing I need to do will be to right the code for the PID controller. 
+3/30/21 Sean: I have integrated the motor/potentiometer control code into the full code. I only had one problem, where the LCD display stopped working, and the serial monitor printed out something about SDA needing a pull-up. I checked that none of the wires had disconnected, and then disconnected and reconnected the ground wire to the LCD and re-saved the code. It started working after that. Now I have everything I need wired up, next thing I need to do will be to write the code for the PID controller. 
 
 Here is the current code I have put together on March 30. 
 
 [Current Code](https://github.com/hpowers82/project_planner/blob/main/March-30-Code.py)
+
+5/3/21 Sean: During class Mr H worked out some PID (just the Proportional part) code for making the motor speed up if the ping pong ball is floating lower than it is set to float, and making the motor slow down if the ping pong ball is floating higher than it is set to float. Here is the code Mr H came up with:
+
+[<img src="/images/Mr-H-PID_Notes-Screenshot.png" alt="Mr-H-PID_Notes-Screenshot.png" >](/images/Mr-H-PID_Notes-Screenshot.png)
+
+
 
 ## CAD Rough Sketch
