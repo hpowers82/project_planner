@@ -141,6 +141,32 @@ Here is the current code I have put together on March 30.
 
 [<img src="/images/Mr-H-PID_Notes-Screenshot.png" alt="Mr-H-PID_Notes-Screenshot.png" >](/images/Mr-H-PID_Notes-Screenshot.png)
 
+One of the big problems I had when implementing this code was that it wouldn't allow me to map the analog_out variable, in this case "MotorVal". I kept getting back error messages saying that the analog_out could not be an int variable and so couldn't be mapped. Because of this, I choose to keep MotorVal's range between 0 and 65535 and mapped my Setpoint and distanse (It wouldn't work if I spelled it right) variables to be between 0 and 655535 to accomodate for that problem. 
 
+Another problem I ran into was in the syntax of my if function conditions. Below is the original code that I adapted from Mr H's notes, with syntax errors in the conditions.
+
+```python
+    if (distanse < Setpoint){
+        ChangeVal = simpleio.map_range(distanse - Setpoint, 0, 20, 0, 128)
+        MotorVal = StandardMVal + ChangeVal
+        }
+    if (distanse > Setpoint){
+        ChangeVal = simpleio.map_range(Setpoint - distanse, 0, 20, 0, 128)
+        MotorVal = StandardMVal - ChangeVal
+        }
+```
+
+It wouldn't let me run ``` if (distanse < Setpoint){ ```
+, even if I put parenthesis around "distanse" and "Setpoint". Instead I had to take out the parenthesis around the if statement condition and use a colon ':' symbol to start the if statement commands and a semi-colon ';'. Normally I would start and end my if statment commands using { and } grouping symbols. Below is the fixed code with no syntax errors.
+
+```python
+    if distanse < Setpoint:
+        ChangeVal = simpleio.map_range(distanse - Setpoint, 0, 20, 0, 128)
+        MotorVal = StandardMVal + ChangeVal;
+
+    if distanse > Setpoint:
+        ChangeVal = simpleio.map_range(Setpoint - distanse, 0, 20, 0, 128)
+        MotorVal = StandardMVal - ChangeVal;
+```
 
 ## CAD Rough Sketch
