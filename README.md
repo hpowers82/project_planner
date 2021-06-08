@@ -169,4 +169,8 @@ It wouldn't let me run ``` if (distanse < Setpoint){ ```
         MotorVal = StandardMVal - ChangeVal;
 ```
 
+Here is the current code I have put together on June 3.
+
+[Current Code](https://github.com/hpowers82/project_planner/blob/main/June-3-Code.py)
+
 ## CAD Rough Sketch
